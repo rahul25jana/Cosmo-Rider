@@ -2,32 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shipControl : MonoBehaviour {
+public class shipControl : MonoBehaviour 
+{
 
-    public GameObject Ship;
-
+    Rigidbody rb;
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+    {
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 
     {
-		
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("rot left");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log("rot right");
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("thurst");
+            rb.AddRelativeForce(Vector3.up);
         }
+        if(Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.forward);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(-Vector3.forward);
+        }
+      
    
 	}
 }
