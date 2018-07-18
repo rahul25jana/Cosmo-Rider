@@ -15,8 +15,15 @@ public class shipControl : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 
+    {
+        Thurstmode();
+        movementmode();
+
+    }
+
+    void Thurstmode()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -27,12 +34,16 @@ public class shipControl : MonoBehaviour
             }
         }
 
-        else 
+        else
         {
             audioSource.Stop();
-  
+
         }
-        if(Input.GetKey(KeyCode.D))
+    }
+     void movementmode()
+    {
+        rb.freezeRotation = true;
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.right);
         }
@@ -40,8 +51,9 @@ public class shipControl : MonoBehaviour
         {
             transform.Rotate(-Vector3.right);
         }
-      
+        rb.freezeRotation = false;
 
-   
-	}
+    }
+
+
 }
