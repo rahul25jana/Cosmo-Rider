@@ -16,7 +16,7 @@ public class shipControl : MonoBehaviour
 	void Update () 
 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             rb.AddRelativeForce(Vector3.up);
         }
