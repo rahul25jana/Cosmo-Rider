@@ -7,6 +7,10 @@ public class shipControl : MonoBehaviour
 
     Rigidbody rb;
     AudioSource audioSource;
+    [SerializeField] float RCSthurst = 100f;
+    [SerializeField] float Mainthurst = 50f;
+
+
 	// Use this for initialization
 	void Start () 
     {
@@ -27,7 +31,7 @@ public class shipControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up);
+            rb.AddRelativeForce(Vector3.up * Mainthurst);
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -42,14 +46,16 @@ public class shipControl : MonoBehaviour
     }
      void movementmode()
     {
+        float FrameperRotation = RCSthurst * Time.deltaTime;
+
         rb.freezeRotation = true;
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.right);
+            transform.Rotate(Vector3.right * FrameperRotation);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(-Vector3.right);
+            transform.Rotate(-Vector3.right * FrameperRotation);
         }
         rb.freezeRotation = false;
 
