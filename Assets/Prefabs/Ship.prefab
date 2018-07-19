@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 82302012618194738}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853231302419690}
   m_LocalRotation: {x: 0.0011831472, y: -0.7385721, z: 0.0043407264, w: -0.6741595}
-  m_LocalPosition: {x: -12.13, y: 7.5315, z: 0.35983}
-  m_LocalScale: {x: 0.17768101, y: 0.41697314, z: 0.40752596}
+  m_LocalPosition: {x: -12.57, y: 7.5649, z: 0.29273}
+  m_LocalScale: {x: 0.14078298, y: 0.29097065, z: 0.2637675}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,9 +93,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853231302419690}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1.6
+  m_Drag: 4
+  m_AngularDrag: 10.01
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

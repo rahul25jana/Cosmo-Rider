@@ -61,5 +61,19 @@ public class shipControl : MonoBehaviour
 
     }
 
+     void OnCollisionEnter(Collision collision)
+
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "friendly":
+                print("I'm Okay");
+                break;
+            default:
+                print("nothing");
+                break;
+        }
+    }
+
 
 }
