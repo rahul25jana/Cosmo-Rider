@@ -57,6 +57,8 @@ public class shipControl : MonoBehaviour
         {
             transform.Rotate(-Vector3.right * FrameperRotation);
         }
+
+
         rb.freezeRotation = false;
 
     }
