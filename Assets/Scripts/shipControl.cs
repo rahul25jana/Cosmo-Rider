@@ -11,6 +11,9 @@ public class shipControl : MonoBehaviour
     [SerializeField] float RCSthurst = 100f;
     [SerializeField] float Mainthurst = 50f;
 
+    enum States {Alive, Dying, Transcending }
+    States State = States.Alive;
+
 
 	// Use this for initialization
 	void Start () 
@@ -23,8 +26,12 @@ public class shipControl : MonoBehaviour
 	void Update ()
 
     {
-        Thurstmode();
-        movementmode();
+        if(State == States.Alive)
+        {
+            Thurstmode();
+            movementmode();
+        }
+    
 
     }
 
@@ -67,13 +74,19 @@ public class shipControl : MonoBehaviour
      void OnCollisionEnter(Collision collision)
 
     {
+        if(State!=States.Alive)
+        {
+            return;
+        }
         switch (collision.gameObject.tag)
         {
             case "Finish":
-                SceneManager.LoadScene(1);
+                State = States.Transcending;
+                Invoke("LoadNextLevel",1f);
                 break;
             case "enemy":
-                SceneManager.LoadScene(0);
+                State = States.Dying;
+                Invoke("LoadDeadLevel", 1f);
                 break;
             default:
                 print("nothing");
@@ -81,5 +94,13 @@ public class shipControl : MonoBehaviour
         }
     }
 
+    void LoadNextLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
 
+    void LoadDeadLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
