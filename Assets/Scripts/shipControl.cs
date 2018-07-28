@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class shipControl : MonoBehaviour 
 {
@@ -68,8 +69,11 @@ public class shipControl : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "friendly":
-                print("I'm Okay");
+            case "Finish":
+                SceneManager.LoadScene(1);
+                break;
+            case "enemy":
+                SceneManager.LoadScene(0);
                 break;
             default:
                 print("nothing");

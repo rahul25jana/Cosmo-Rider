@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet 1.unity
     guid: 720380ddc4d654680b8ac5be88345d4c
+  - enabled: 1
+    path: Assets/Scenes/Planet 2.unity
+    guid: 515016bc73345455ab69e818aa2eaad8
