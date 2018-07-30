@@ -10,6 +10,9 @@ public class shipControl : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] float RCSthurst = 100f;
     [SerializeField] float Mainthurst = 50f;
+    [SerializeField] AudioClip death;
+    [SerializeField] AudioClip leveUP;
+
 
     enum States {Alive, Dying, Transcending }
     States State = States.Alive;
@@ -83,10 +86,13 @@ public class shipControl : MonoBehaviour
             case "Finish":
                 State = States.Transcending;
                 Invoke("LoadNextLevel",1f);
+                audioSource.PlayOneShot(leveUP);
                 break;
             case "enemy":
                 State = States.Dying;
+                audioSource.Stop();
                 Invoke("LoadDeadLevel", 1f);
+                audioSource.PlayOneShot(death);
                 break;
             default:
                 print("nothing");
@@ -102,5 +108,6 @@ public class shipControl : MonoBehaviour
     void LoadDeadLevel()
     {
         SceneManager.LoadScene(0);
+
     }
 }
