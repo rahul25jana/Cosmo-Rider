@@ -13,6 +13,10 @@ public class shipControl : MonoBehaviour
     [SerializeField] AudioClip death;
     [SerializeField] AudioClip leveUP;
 
+    [SerializeField] ParticleSystem  ShipFlames;
+	[SerializeField] ParticleSystem  ShipDestroy;
+
+
 
     enum States {Alive, Dying, Transcending }
     States State = States.Alive;
@@ -46,12 +50,14 @@ public class shipControl : MonoBehaviour
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
+                ShipFlames.Play();
             }
         }
 
         else
         {
             audioSource.Stop();
+            ShipFlames.Stop();
 
         }
     }

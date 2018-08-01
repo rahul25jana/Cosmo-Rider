@@ -6,6 +6,7 @@ public class CameraControl : MonoBehaviour {
     
     public GameObject PlayerShip;
     private Vector3 CamPos;
+   // private Vector3 LockY;
 
 	// Use this for initialization
 	void Start () 
@@ -14,9 +15,12 @@ public class CameraControl : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
         transform.position = PlayerShip.transform.position + CamPos;
-        //this.transform.position = PlayerShip.transform.position + new Vector3(CamPos.x, CamPos.y, 0);
+        //Vector3 LockY = transform.position;
+      //  LockY.z = PlayerShip.transform.position.z + CamPos.z;
+        //LockY.z = PlayerShip.transform.position.z + CamPos.z;
+       // transform.position = LockY;
 	}
 }
