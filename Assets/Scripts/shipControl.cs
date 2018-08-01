@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DisallowMultipleComponent]
 public class shipControl : MonoBehaviour 
 {
 
@@ -15,8 +16,10 @@ public class shipControl : MonoBehaviour
 
     [SerializeField] ParticleSystem  ShipFlames;
 	[SerializeField] ParticleSystem  ShipDestroy;
+    [SerializeField] Vector3 MoveVec;
+    [Range(0, 1)] [SerializeField] float MovRange;
 
-
+    Vector3 StartPos;
 
     enum States {Alive, Dying, Transcending }
     States State = States.Alive;
@@ -25,6 +28,7 @@ public class shipControl : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        StartPos = transform.position;
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 	}
@@ -33,6 +37,9 @@ public class shipControl : MonoBehaviour
 	void Update ()
 
     {
+
+        Vector3 offset = MoveVec * MovRange;
+        transform.position = StartPos + offset;
         if(State == States.Alive)
         {
             Thurstmode();
@@ -57,7 +64,6 @@ public class shipControl : MonoBehaviour
         else
         {
             audioSource.Stop();
-            ShipFlames.Stop();
 
         }
     }
@@ -97,7 +103,9 @@ public class shipControl : MonoBehaviour
             case "enemy":
                 State = States.Dying;
                 audioSource.Stop();
+                ShipFlames.Stop();
                 Invoke("LoadDeadLevel", 1f);
+                ShipDestroy.Play();
                 audioSource.PlayOneShot(death);
                 break;
             default:
@@ -117,3 +125,5 @@ public class shipControl : MonoBehaviour
 
     }
 }
+
+
