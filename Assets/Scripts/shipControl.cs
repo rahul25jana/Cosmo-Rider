@@ -46,7 +46,7 @@ public class shipControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * Mainthurst);
+            rb.AddRelativeForce(Vector3.up * Mainthurst ); // add * delta.time
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
