@@ -26,6 +26,7 @@ public class MoveMe : MonoBehaviour
         if (Period == 0f) { return; }  // or we can also do --> (Period <= Mathf.Epsilon) because it is the smallest of float
         float cycle = Time.time / Period;
         const float pii = Mathf.PI * 2f;
+       // print(Mathf.Sin(pii / 4f));
         float sinWave = Mathf.Sin(cycle * pii);
 
         MoveFac = sinWave / 2f + 0.5f;

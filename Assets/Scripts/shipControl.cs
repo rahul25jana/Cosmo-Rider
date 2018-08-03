@@ -15,7 +15,8 @@ public class shipControl : MonoBehaviour
 
     [SerializeField] ParticleSystem  ShipFlames;
 	[SerializeField] ParticleSystem  ShipDestroy;
- 
+
+    bool ToggleCollisionsOFF = false;
 
     enum States {Alive, Dying, Transcending }
     States State = States.Alive;
@@ -33,14 +34,17 @@ public class shipControl : MonoBehaviour
 	void Update ()
 
     {
-        DebugKing();
+        if(Debug.isDebugBuild)  // development build
+        {
+            DebugKing();
+ 
+        }
         if(State == States.Alive)
         {
             Thurstmode();
             movementmode();
           
-        }
-    
+        }   
 
     }
 
@@ -85,12 +89,11 @@ public class shipControl : MonoBehaviour
      void OnCollisionEnter(Collision collision)
 
     {
-        if(State!=States.Alive)
+        if(State!=States.Alive || ToggleCollisionsOFF)
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+       
             switch (collision.gameObject.tag)
             {
                 case "Finish":
@@ -109,7 +112,7 @@ public class shipControl : MonoBehaviour
                 default:
                     print("nothing");
                     break;
-            }
+            
         }
     }
 
@@ -130,6 +133,12 @@ public class shipControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             SceneManager.LoadScene(1);  // or loadNextlevel()
+        }
+
+        else if(Input.GetKeyDown(KeyCode.C))
+
+        {
+            ToggleCollisionsOFF = !ToggleCollisionsOFF;
         }
 
     }
