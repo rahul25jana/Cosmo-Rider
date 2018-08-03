@@ -21,6 +21,7 @@ public class shipControl : MonoBehaviour
     States State = States.Alive;
 
 
+
 	// Use this for initialization
 	void Start () 
     {
@@ -32,11 +33,12 @@ public class shipControl : MonoBehaviour
 	void Update ()
 
     {
-        
+        DebugKing();
         if(State == States.Alive)
         {
             Thurstmode();
             movementmode();
+          
         }
     
 
@@ -87,24 +89,27 @@ public class shipControl : MonoBehaviour
         {
             return;
         }
-        switch (collision.gameObject.tag)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            case "Finish":
-                State = States.Transcending;
-                Invoke("LoadNextLevel",1f);
-                audioSource.PlayOneShot(leveUP);
-                break;
-            case "enemy":
-                State = States.Dying;
-                audioSource.Stop();
-                Invoke("LoadDeadLevel", 1f);
-                ShipDestroy.Play();
-                //ShipDestroy.Stop();
-                audioSource.PlayOneShot(death);
-                break;
-            default:
-                print("nothing");
-                break;
+            switch (collision.gameObject.tag)
+            {
+                case "Finish":
+                    State = States.Transcending;
+                    Invoke("LoadNextLevel", 1f);
+                    audioSource.PlayOneShot(leveUP);
+                    break;
+                case "enemy":
+                    State = States.Dying;
+                    audioSource.Stop();
+                    Invoke("LoadDeadLevel", 1f);
+                    ShipDestroy.Play();
+                    //ShipDestroy.Stop();
+                    audioSource.PlayOneShot(death);
+                    break;
+                default:
+                    print("nothing");
+                    break;
+            }
         }
     }
 
@@ -118,6 +123,17 @@ public class shipControl : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
+
+    void DebugKing()
+
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene(1);  // or loadNextlevel()
+        }
+
+    }
+
 }
 
 
