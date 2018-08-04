@@ -69,9 +69,9 @@ public class shipControl : MonoBehaviour
     }
      void movementmode()
     {
+        rb.angularVelocity = Vector3.zero;
         float FrameperRotation = RCSthurst * Time.deltaTime;
 
-        rb.freezeRotation = true;
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.right * FrameperRotation);
@@ -82,7 +82,6 @@ public class shipControl : MonoBehaviour
         }
 
 
-        rb.freezeRotation = false;
 
     }
 
