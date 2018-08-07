@@ -3155,7 +3155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029702602866298}
   m_LocalRotation: {x: -0, y: 0.710973, z: -0, w: 0.70321935}
-  m_LocalPosition: {x: -533.8, y: -127.7, z: 188.8125}
+  m_LocalPosition: {x: -533.8, y: 358, z: 188.8125}
   m_LocalScale: {x: 13.54318, y: 21.796265, z: 28.81244}
   m_Children:
   - {fileID: 4749271862700190}
@@ -3229,7 +3229,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466757311523288}
   m_LocalRotation: {x: 0.024609307, y: -0.8230967, z: 0.013871237, w: 0.56719834}
-  m_LocalPosition: {x: 438, y: -58.388794, z: 244}
+  m_LocalPosition: {x: 375, y: 44, z: 246}
   m_LocalScale: {x: 13.039368, y: 14.458703, z: 6.179399}
   m_Children:
   - {fileID: 4606366893275652}
@@ -4485,8 +4485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b77106e979d34f79b46746a598bda29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveVec: {x: 0, y: 500, z: 0}
-  Period: 2.5
+  MoveVec: {x: 0, y: 0, z: 500}
+  Period: 3
 --- !u!114 &114505422068212978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4498,8 +4498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b77106e979d34f79b46746a598bda29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveVec: {x: 100, y: 150, z: 0}
-  Period: 1.5
+  MoveVec: {x: 0, y: 300, z: 0}
+  Period: 2
 --- !u!114 &114675552311157444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4511,8 +4511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b77106e979d34f79b46746a598bda29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveVec: {x: 100, y: 100, z: 100}
-  Period: 2.5
+  MoveVec: {x: 100, y: 200, z: 100}
+  Period: 1.5
 --- !u!137 &137248942034828742
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

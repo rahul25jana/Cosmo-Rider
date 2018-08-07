@@ -84,6 +84,24 @@ public class shipControl : MonoBehaviour
 
 
     }
+    //void movementmode_1()
+    //{
+    //    //rb.angularVelocity = Vector3.zero;
+    //    //float FrameperRotation = RCSthurst * Time.deltaTime;
+
+    //    if (Input.GetKey(KeyCode.D))
+    //    {
+    //        transform.Rotate(Vector3.right );
+    //    }
+    //    else if (Input.GetKey(KeyCode.A))
+    //    {
+    //        transform.Rotate(-Vector3.right );
+    //    }
+
+
+
+    //}
+
 
      void OnCollisionEnter(Collision collision)
 
@@ -124,6 +142,12 @@ public class shipControl : MonoBehaviour
     {
         SceneManager.LoadScene(0);
 
+    }
+
+    void LoadMenuLevel()
+
+    {
+        
     }
 
     void DebugKing()
